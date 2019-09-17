@@ -5,6 +5,7 @@ using UnityEngine;
 public class ZedMovement : MonoBehaviour
 {
 	public float moveSpeed;
+	public float zedSpeed;
 	public int moveX;
 	
 	private Rigidbody2D myRigidbody;
@@ -23,7 +24,7 @@ public class ZedMovement : MonoBehaviour
     {
 		//case for zombie moving left, works like a charm
         if(moveX<=0){
-			myRigidbody.velocity = new Vector2( 1f * -moveSpeed, myRigidbody.velocity.y);
+			myRigidbody.velocity = new Vector2( zedSpeed * -moveSpeed, myRigidbody.velocity.y);
 		}
     }
 }

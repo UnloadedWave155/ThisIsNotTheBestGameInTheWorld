@@ -16,10 +16,12 @@ public class PlayerControler : MonoBehaviour
 	
 	public float jumpForce;
 	
+
+	
 	public bool Grounded;
 
-	public int hpMax = 10;
-	public int hpCurrent = 7;
+	public int hpMax = 15;
+	public int hpCurrent = 6;
 	
 	
     // Start is called before the first frame update
@@ -59,6 +61,13 @@ public class PlayerControler : MonoBehaviour
         if (col.gameObject.tag == "floor")
         {
             Grounded= true;
+        }
+		if (col.gameObject.tag == "FOE")
+        {
+            hpCurrent-=2;
+			
+			
+			
         }
     }
 

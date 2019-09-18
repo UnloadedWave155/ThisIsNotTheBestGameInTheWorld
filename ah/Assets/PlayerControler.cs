@@ -17,6 +17,9 @@ public class PlayerControler : MonoBehaviour
 	public float jumpForce;
 	
 	public bool Grounded;
+
+	public int hpMax = 10;
+	public int hpCurrent = 7;
 	
 	
     // Start is called before the first frame update
@@ -26,7 +29,6 @@ public class PlayerControler : MonoBehaviour
         myRigidbody = GetComponent<Rigidbody2D>();
 		
     }
-	
 
     // Update is called once per frame
     void Update()
@@ -53,12 +55,45 @@ public class PlayerControler : MonoBehaviour
 		
     }
 	void OnCollisionEnter2D (Collision2D col)
-     {
-         if (col.gameObject.tag == "floor")
-         {
-             Grounded= true;
-         }
-     }
+    {
+        if (col.gameObject.tag == "floor")
+        {
+            Grounded= true;
+        }
+    }
+
+	// Finds out what kind of power up this is, applies it, and destroys the powerup.
+	void OnTriggerEnter2D(Collider2D col)
+	{
+		if(col.gameObject.name == "PowerUp")
+		{
+			PowerUp p = col.gameObject.GetComponent(typeof (PowerUp)) as PowerUp;
+			int type = p.myPowerType(); // type is the type of powerup we just picked up
+			Debug.Log("We have picked up a " + p.displayPowerType() + " powerup!");
+
+			if(type == 0) // small heal
+			{
+				if(hpMax != hpCurrent)
+				{
+					Debug.Log("HP: " + hpCurrent + "/" + hpMax);
+					hpCurrent += 5;  // just test numbers
+					if(hpCurrent > hpMax)
+					{
+						hpCurrent = hpMax;
+					}
+					Debug.Log("HP: " + hpCurrent + "/" + hpMax);
+				}
+			}
+			else if(type == 1) // full heal
+			{
+				Debug.Log("HP: " + hpCurrent + "/" + hpMax);
+				hpCurrent = hpMax;
+				Debug.Log("HP: " + hpCurrent + "/" + hpMax);
+			}
+
+			Destroy(col.gameObject); // destroy when done
+		}
+	}
 
 
 }

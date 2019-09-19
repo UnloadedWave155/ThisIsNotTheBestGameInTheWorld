@@ -1292,6 +1292,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: FOE
       objectReference: {fileID: 0}
+    - target: {fileID: 1754426481044742, guid: 2e9ae15faf72767449dc70ec73f6b064, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 4817640826903990, guid: 2e9ae15faf72767449dc70ec73f6b064, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2
@@ -1758,7 +1762,7 @@ GameObject:
   - component: {fileID: 1262442098}
   - component: {fileID: 1262442100}
   - component: {fileID: 1262442099}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Tilemap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1867,6 +1871,22 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 3181814607268739221}
   m_PrefabAsset: {fileID: 0}
+--- !u!58 &1390393704
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1390393701}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.32
 --- !u!1 &1504447057
 GameObject:
   m_ObjectHideFlags: 0
@@ -5697,9 +5717,10 @@ GameObject:
   - component: {fileID: 1785728015}
   - component: {fileID: 1785728014}
   - component: {fileID: 1785728017}
-  m_Layer: 0
+  - component: {fileID: 1785728016}
+  m_Layer: 11
   m_Name: Stairs
-  m_TagString: Untagged
+  m_TagString: stairs
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5731,6 +5752,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!68 &1785728016
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1785728013}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 6200000, guid: d86a7b6d657644d41878ff9194581fd8, type: 2}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0.01
+  m_Points:
+  - {x: -1.3289418, y: -1.9318202}
+  - {x: 1.1244855, y: 0.5631439}
 --- !u!50 &1785728017
 Rigidbody2D:
   serializedVersion: 4
@@ -5751,7 +5790,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 7
 --- !u!1 &1833774912
 GameObject:
   m_ObjectHideFlags: 0

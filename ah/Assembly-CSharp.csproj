@@ -54,6 +54,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\CameraMovement.cs" />
+     <Compile Include="Assets\MonsterMovement.cs" />
      <Compile Include="Assets\PlayerControler.cs" />
      <Compile Include="Assets\PowerUp.cs" />
      <Compile Include="Assets\ZedMovement.cs" />

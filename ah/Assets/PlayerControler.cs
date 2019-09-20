@@ -100,7 +100,7 @@ public class PlayerControler : MonoBehaviour
 				if(hpMax != hpCurrent)
 				{
 					Debug.Log("HP: " + hpCurrent + "/" + hpMax);
-					hpCurrent += 5;  // just test numbers
+					hpCurrent += 3;  // just test numbers
 					if(hpCurrent > hpMax)
 					{
 						hpCurrent = hpMax;

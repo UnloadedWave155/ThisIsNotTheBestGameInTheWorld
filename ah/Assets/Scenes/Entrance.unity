@@ -124,7 +124,7 @@ GameObject:
   - component: {fileID: 97801132}
   - component: {fileID: 97801131}
   m_Layer: 0
-  m_Name: Tilemap
+  m_Name: decor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -700,7 +700,7 @@ GameObject:
   - component: {fileID: 193849363}
   - component: {fileID: 193849364}
   m_Layer: 8
-  m_Name: Tilemap
+  m_Name: floor
   m_TagString: floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1582,7 +1582,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0574a91350c94114a94706173f23dc95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 3
+  moveSpeed: 2
   zedSpeed: 1
   moveX: -1
 --- !u!114 &778649989
@@ -1793,7 +1793,7 @@ GameObject:
   - component: {fileID: 1262442101}
   - component: {fileID: 1262442103}
   m_Layer: 11
-  m_Name: Tilemap
+  m_Name: stairs
   m_TagString: stairs
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2167,7 +2167,7 @@ GameObject:
   - component: {fileID: 1722807523}
   - component: {fileID: 1722807522}
   m_Layer: 0
-  m_Name: Tilemap
+  m_Name: Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

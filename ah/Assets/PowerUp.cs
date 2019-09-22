@@ -6,6 +6,7 @@ public class PowerUp : MonoBehaviour
 {
 	public enum PowerUpTypes {smallHeal, fullHeal, dmgIncrease, haste, invincibility, hpIncrease, barrier};
 	public int myPower = 0;
+	//private Sprite sprite;
 
 
     // Start is called before the first frame update
@@ -13,7 +14,7 @@ public class PowerUp : MonoBehaviour
     {
 		if(myPower >= 0 && myPower < System.Enum.GetNames(typeof(PowerUp.PowerUpTypes)).Length) // makes sure the number is within the scope of PowerUpTypes
 		{
-			// add sprite for powerup depending on the type
+			
 		}
     }
 

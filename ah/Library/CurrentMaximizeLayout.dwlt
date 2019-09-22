@@ -590,7 +590,7 @@ MonoBehaviour:
   m_Children: []
   m_Position:
     serializedVersion: 2
-    x: 1011
+    x: 1020
     y: 0
     width: 234
     height: 715
@@ -750,7 +750,7 @@ MonoBehaviour:
   m_Children: []
   m_Position:
     serializedVersion: 2
-    x: 1245
+    x: 1256
     y: 0
     width: 277
     height: 715

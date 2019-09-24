@@ -27,6 +27,9 @@ public class PlayerControler : MonoBehaviour
 	public float invulnTime = 0.5f;
 	private float invulnEndTime;
 	
+	private Animator anim; 
+
+	
     // Start is called before the first frame update
     void Start()
     {
@@ -140,6 +143,8 @@ public class PlayerControler : MonoBehaviour
 			Destroy(col.gameObject); // destroy when done
 		}
 	}
+		//animation starts?
+		//anim.SetFloat ("MoveX", Input.GetAxisRaw ("Horizontal"));
 
 
 }

@@ -21,8 +21,11 @@ public class PlayerControler : MonoBehaviour
 	public bool Grounded;
 
 	public int hpMax = 15;
-	public int hpCurrent = 6;
-	
+	public int hpCurrent = 15;
+	private bool isAlive = true;
+	private bool isInvulnerable = false;
+	public float invulnTime = 0.5f;
+	private float invulnEndTime;
 	
     // Start is called before the first frame update
     void Start()
@@ -36,7 +39,21 @@ public class PlayerControler : MonoBehaviour
     void Update()
     {
         playerMoving = false;
-		
+
+		if(isInvulnerable)
+		{
+			if(Time.time > invulnEndTime)
+			{
+				Debug.Log("Vulnerable again.");
+				isInvulnerable = false;
+			}
+		}
+
+		if(hpCurrent <= 0)
+		{
+			isAlive = false;
+			Debug.Log("You are dead!");
+		}
 		
 		if (Input.GetAxisRaw("Horizontal") > 0.5f || Input.GetAxisRaw ("Horizontal") < -0.5f ) {
 
@@ -64,8 +81,13 @@ public class PlayerControler : MonoBehaviour
         }
 		if (col.gameObject.tag == "FOE")
         {
-            hpCurrent-=2;
-			
+			if(!isInvulnerable)
+			{
+            	hpCurrent-=2;
+				Debug.Log("HP: " + hpCurrent + "/" + hpMax);
+				isInvulnerable = true;
+				invulnEndTime = Time.time + invulnTime;
+			}
         }
 		if (col.gameObject.tag=="stairs" && Input.GetKeyDown(KeyCode.UpArrow)) 
 		{

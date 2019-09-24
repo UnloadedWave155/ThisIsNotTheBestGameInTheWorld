@@ -7861,12 +7861,17 @@ PrefabInstance:
     - target: {fileID: 3181814605898400243, guid: cb69eeda193da0d498941016f49db115,
         type: 3}
       propertyPath: hpCurrent
-      value: 6
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 3181814605898400243, guid: cb69eeda193da0d498941016f49db115,
         type: 3}
       propertyPath: jumpForce
       value: 375
+      objectReference: {fileID: 0}
+    - target: {fileID: 3181814605898400243, guid: cb69eeda193da0d498941016f49db115,
+        type: 3}
+      propertyPath: invulnTime
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 3181814605898400242, guid: cb69eeda193da0d498941016f49db115,
         type: 3}

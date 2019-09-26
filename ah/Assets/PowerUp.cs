@@ -7,9 +7,10 @@ public class PowerUp : MonoBehaviour
 {
 	public enum PowerUpTypes {smallHeal, fullHeal, dmgIncrease, haste, invincibility, hpIncrease, barrier};
 	public int myPower = 0;
-	public PlayerController player;
+	public NewPlayerController player;
 	private AudioSource soundEffect;
 	private AudioClip aClip;
+	private bool activated = false;
 	//private Sprite sprite;
 
 
@@ -37,9 +38,9 @@ public class PowerUp : MonoBehaviour
 
 	void OnTriggerEnter2D(Collider2D col)
 	{
-		if(col.gameObject.name == "player")
+		if(col.gameObject.name == "player" && !activated)
 		{
-			
+			activated = true; // added this to prevent being able to get the power up twice while the sound is playing.
 			Debug.Log("We have picked up a " + Enum.GetName(typeof(PowerUpTypes), myPower) + " powerup!");
 
 			if(myPower == 0) // small heal
@@ -55,8 +56,8 @@ public class PowerUp : MonoBehaviour
 				Debug.Log("HP: " + player.getHpCurrent() + "/" + player.getHpMax());
 			}
 			soundEffect.PlayOneShot(aClip);
-			GetComponent<SpriteRenderer>().enabled = false;
-			Destroy(gameObject, aClip.length); // destroy when done
+			GetComponent<SpriteRenderer>().enabled = false; // hide the object in the scene so it looks destroyed
+			Destroy(gameObject, aClip.length); // destroy when sound is done playing
 		}
 	}
 

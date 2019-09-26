@@ -137,40 +137,6 @@ public class NewPlayerController : MonoBehaviour
 			hpCurrent += difference;
 		}
 	}
-	// Finds out what kind of power up this is, applies it, and destroys the powerup.
-	void OnTriggerEnter2D(Collider2D col)
-	{
-		if(col.gameObject.name == "PowerUp")
-		{
-			PowerUp p = col.gameObject.GetComponent(typeof (PowerUp)) as PowerUp;
-			int type = p.myPowerType(); // type is the type of powerup we just picked up
-			Debug.Log("We have picked up a " + p.displayPowerType() + " powerup!");
-
-			if(type == 0) // small heal
-			{
-				if(hpMax != hpCurrent)
-				{
-					Debug.Log("HP: " + hpCurrent + "/" + hpMax);
-					hpCurrent += 3;  // just test numbers
-					if(hpCurrent > hpMax)
-					{
-						hpCurrent = hpMax;
-					}
-					Debug.Log("HP: " + hpCurrent + "/" + hpMax);
-				}
-			}
-			else if(type == 1) // full heal
-			{
-				Debug.Log("HP: " + hpCurrent + "/" + hpMax);
-				hpCurrent = hpMax;
-				Debug.Log("HP: " + hpCurrent + "/" + hpMax);
-			}
-			//col.gameObject.AudioSource.play();
-			Destroy(col.gameObject); // destroy when done
-		}
-	}
-		//animation starts?
-		//anim.SetFloat ("MoveX", Input.GetAxisRaw ("Horizontal"));
 
 
 }

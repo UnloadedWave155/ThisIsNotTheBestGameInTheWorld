@@ -54,6 +54,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\CameraMovement.cs" />
+     <Compile Include="Assets\GUIHealthBar.cs" />
      <Compile Include="Assets\MonsterMovement.cs" />
      <Compile Include="Assets\NewPlayerController.cs" />
      <Compile Include="Assets\PlayerController.cs" />

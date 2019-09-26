@@ -1209,7 +1209,7 @@ PrefabInstance:
         type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 1390393703}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8935ab5d7719bd04ea18708647540759, type: 3}
 --- !u!1 &164380415
@@ -3256,8 +3256,8 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 3181814607268739221}
   m_PrefabAsset: {fileID: 0}
---- !u!61 &1390393702
-BoxCollider2D:
+--- !u!70 &1390393702
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -3270,30 +3270,26 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.28, y: 2.96}
-    newSize: {x: 0.64, y: 0.64}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
   m_Size: {x: 1.28, y: 2.96}
-  m_EdgeRadius: 0
---- !u!114 &1390393703 stripped
+  m_Direction: 0
+--- !u!114 &1390393703
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3181814605898400243, guid: cb69eeda193da0d498941016f49db115,
-    type: 3}
-  m_PrefabInstance: {fileID: 3181814607268739221}
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1390393701}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c93ac7bc16b81b24090ecdff6621d4b4, type: 3}
+  m_Script: {fileID: 11500000, guid: e31e52e4b9b9c3048b53e4ed0eb19c20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveSpeed: 3
+  jumpForce: 375
+  Grounded: 0
+  hpMax: 15
+  hpCurrent: 15
+  invulnTime: 0.5
 --- !u!95 &1390393708
 Animator:
   serializedVersion: 3
@@ -7998,7 +7994,6 @@ GameObject:
   - component: {fileID: 1785728015}
   - component: {fileID: 1785728014}
   - component: {fileID: 1785728017}
-  - component: {fileID: 1785728016}
   m_Layer: 11
   m_Name: Stairs
   m_TagString: stairs
@@ -8033,24 +8028,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!68 &1785728016
-EdgeCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1785728013}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 6200000, guid: d86a7b6d657644d41878ff9194581fd8, type: 2}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.1, y: -0.01}
-  m_EdgeRadius: 0.01
-  m_Points:
-  - {x: -1.3289418, y: -1.9318202}
-  - {x: 1.1244855, y: 0.5631439}
 --- !u!50 &1785728017
 Rigidbody2D:
   serializedVersion: 4
@@ -8731,6 +8708,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: player
       objectReference: {fileID: 0}
+    - target: {fileID: 3181814605898400243, guid: cb69eeda193da0d498941016f49db115,
+        type: 3}
+      propertyPath: hpMax
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 3181814605898400243, guid: cb69eeda193da0d498941016f49db115,
+        type: 3}
+      propertyPath: hpCurrent
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 3181814605898400243, guid: cb69eeda193da0d498941016f49db115,
+        type: 3}
+      propertyPath: jumpForce
+      value: 375
+      objectReference: {fileID: 0}
+    - target: {fileID: 3181814605898400243, guid: cb69eeda193da0d498941016f49db115,
+        type: 3}
+      propertyPath: invulnTime
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 3181814605898400252, guid: cb69eeda193da0d498941016f49db115,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8796,26 +8793,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 3181814605898400243, guid: cb69eeda193da0d498941016f49db115,
-        type: 3}
-      propertyPath: hpMax
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 3181814605898400243, guid: cb69eeda193da0d498941016f49db115,
-        type: 3}
-      propertyPath: hpCurrent
-      value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 3181814605898400243, guid: cb69eeda193da0d498941016f49db115,
-        type: 3}
-      propertyPath: jumpForce
-      value: 375
-      objectReference: {fileID: 0}
-    - target: {fileID: 3181814605898400243, guid: cb69eeda193da0d498941016f49db115,
-        type: 3}
-      propertyPath: invulnTime
-      value: 0.5
-      objectReference: {fileID: 0}
     - target: {fileID: 3181814605898400242, guid: cb69eeda193da0d498941016f49db115,
         type: 3}
       propertyPath: m_Mass
@@ -8829,6 +8806,7 @@ PrefabInstance:
         type: 3}
     m_RemovedComponents:
     - {fileID: 8991930307777068702, guid: cb69eeda193da0d498941016f49db115, type: 3}
+    - {fileID: 3181814605898400243, guid: cb69eeda193da0d498941016f49db115, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: cb69eeda193da0d498941016f49db115, type: 3}
 --- !u!1 &7128319579197381721
 GameObject:

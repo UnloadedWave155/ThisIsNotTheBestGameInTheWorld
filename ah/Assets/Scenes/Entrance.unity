@@ -3279,9 +3279,10 @@ MonoBehaviour:
   moveSpeed: 5
   jumpForce: 375
   Grounded: 0
-  hpMax: 15
-  hpCurrent: 15
+  hpMax: 16
+  hpCurrent: 16
   invulnTime: 0.5
+  animator: {fileID: 1390393708}
 --- !u!95 &1390393708
 Animator:
   serializedVersion: 3

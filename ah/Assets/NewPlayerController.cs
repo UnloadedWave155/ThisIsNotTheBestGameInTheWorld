@@ -27,7 +27,7 @@ public class NewPlayerController : MonoBehaviour
 	public float invulnTime = 0.5f;
 	private float invulnEndTime;
 	
-	private Animator anim; 
+	public Animator animator; 
 
 	
     // Start is called before the first frame update
@@ -74,6 +74,7 @@ public class NewPlayerController : MonoBehaviour
 			Grounded=false;
 		}
 
+		animator.SetFloat("Horizontal", Input.GetAxis("Horizontal"));
 		
     }
 	void OnCollisionEnter2D (Collision2D col)

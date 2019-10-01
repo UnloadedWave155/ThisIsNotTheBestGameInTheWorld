@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class NewPlayerController : MonoBehaviour
 //new script becaues the renamed one wouldn't register/ attach to the player sprite
@@ -26,8 +27,10 @@ public class NewPlayerController : MonoBehaviour
 	private bool isInvulnerable = false;
 	public float invulnTime = 0.5f;
 	private float invulnEndTime;
+	public GameObject playerStart;
+	private GUIController myGUI;
 	
-	public Animator animator; 
+	private Animator anim; 
 
 	
     // Start is called before the first frame update
@@ -35,7 +38,8 @@ public class NewPlayerController : MonoBehaviour
     {
 		Grounded=true;
         myRigidbody = GetComponent<Rigidbody2D>();
-		
+		gameObject.transform.position = playerStart.transform.position;
+		myGUI = GetComponent<GUIController>();
     }
 
     // Update is called once per frame
@@ -56,6 +60,7 @@ public class NewPlayerController : MonoBehaviour
 		{
 			isAlive = false;
 			Debug.Log("You are dead!");
+			myGUI.showDeathUI();
 		}
 		
 		if (Input.GetAxisRaw("Horizontal") > 0.5f || Input.GetAxisRaw ("Horizontal") < -0.5f ) {
@@ -74,7 +79,6 @@ public class NewPlayerController : MonoBehaviour
 			Grounded=false;
 		}
 
-		animator.SetFloat("Horizontal", Input.GetAxis("Horizontal"));
 		
     }
 	void OnCollisionEnter2D (Collision2D col)
@@ -137,6 +141,14 @@ public class NewPlayerController : MonoBehaviour
 		else{
 			hpCurrent += difference;
 		}
+	}
+
+	public void respawn()
+	{
+		gameObject.transform.position = playerStart.transform.position;
+		hpCurrent = hpMax;
+		myGUI.showLevelUI();
+		SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 	}
 
 

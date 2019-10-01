@@ -3638,6 +3638,7 @@ MonoBehaviour:
   hpCurrent: 16
   invulnTime: 0.5
   playerStart: {fileID: 1521074508}
+  animator: {fileID: 1390393708}
 --- !u!114 &1390393707
 MonoBehaviour:
   m_ObjectHideFlags: 0

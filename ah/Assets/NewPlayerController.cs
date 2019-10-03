@@ -30,7 +30,7 @@ public class NewPlayerController : MonoBehaviour
 	public GameObject playerStart;
 	private GUIController myGUI;
 	
-	private Animator anim; 
+	public Animator animator; 
 
 	
     // Start is called before the first frame update
@@ -69,6 +69,7 @@ public class NewPlayerController : MonoBehaviour
 			myRigidbody.velocity = new Vector2(Input.GetAxisRaw("Horizontal") * moveSpeed, myRigidbody.velocity.y);
 			playerMoving = true;
 			lastMove = new Vector2 (Input.GetAxisRaw("Horizontal"), 0f); 
+			
 
 		}
 		if (Input.GetAxisRaw("Horizontal") < 0.5f && Input.GetAxisRaw("Horizontal") > -0.5f) {
@@ -78,6 +79,7 @@ public class NewPlayerController : MonoBehaviour
 			myRigidbody.AddForce(Vector2.up*jumpForce,ForceMode2D.Impulse);
 			Grounded=false;
 		}
+		animator.SetFloat("Horizontal",Input.GetAxis("Horizontal"));//for animations
 
 		
     }

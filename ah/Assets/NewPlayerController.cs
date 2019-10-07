@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class NewPlayerController : MonoBehaviour
 //new script becaues the renamed one wouldn't register/ attach to the player sprite
@@ -16,9 +17,7 @@ public class NewPlayerController : MonoBehaviour
 	private Vector2 lastMove;
 	
 	public float jumpForce;
-	
 
-	
 	public bool Grounded;
 
 	public int hpMax = 15;
@@ -29,6 +28,8 @@ public class NewPlayerController : MonoBehaviour
 	private float invulnEndTime;
 	public GameObject playerStart;
 	private GUIController myGUI;
+	public int lives = 5;
+	public Text livesGUI;
 	
 	public Animator animator; 
 
@@ -37,6 +38,15 @@ public class NewPlayerController : MonoBehaviour
     void Start()
     {
 		Grounded=true;
+		lives = PlayerPrefs.GetInt("lives");
+		if(lives <= 0)
+		{
+			PlayerPrefs.SetInt("lives", 5);
+		}
+		else{
+			PlayerPrefs.SetInt("lives", lives);
+		}
+		livesGUI.text = lives.ToString();
         myRigidbody = GetComponent<Rigidbody2D>();
 		gameObject.transform.position = playerStart.transform.position;
 		myGUI = GetComponent<GUIController>();
@@ -58,9 +68,14 @@ public class NewPlayerController : MonoBehaviour
 
 		if(hpCurrent <= 0)
 		{
+			if(isAlive)
+			{
+				lives-=1;
+				PlayerPrefs.SetInt("lives", lives);
+				Debug.Log("You are dead!");
+				myGUI.showDeathUI();
+			}
 			isAlive = false;
-			Debug.Log("You are dead!");
-			myGUI.showDeathUI();
 		}
 		
 		if (Input.GetAxisRaw("Horizontal") > 0.5f || Input.GetAxisRaw ("Horizontal") < -0.5f ) {
@@ -94,10 +109,10 @@ public class NewPlayerController : MonoBehaviour
 			if(!isInvulnerable)
 			{
             	hpCurrent-=2;
-				Debug.Log("HP: " + hpCurrent + "/" + hpMax);
 				isInvulnerable = true;
-				invulnEndTime = Time.time + invulnTime;
+				invulnEndTime = Time.time + invulnTime; 
 			}
+
         }
 		if (col.gameObject.tag=="stairs" && Input.GetKeyDown(KeyCode.UpArrow)) 
 		{

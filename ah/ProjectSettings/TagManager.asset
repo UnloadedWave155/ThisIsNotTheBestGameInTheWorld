@@ -8,6 +8,7 @@ TagManager:
   - floor
   - FOE
   - stairs
+  - bullet
   layers:
   - Default
   - TransparentFX

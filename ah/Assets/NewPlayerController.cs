@@ -9,6 +9,9 @@ public class NewPlayerController : MonoBehaviour
 {
 	public float moveSpeed;
 	
+	
+	
+	
 	private Rigidbody2D myRigidbody;
 	//public float raycastMaxDistance= 4f;
 
@@ -22,6 +25,7 @@ public class NewPlayerController : MonoBehaviour
 
 	public int hpMax = 15;
 	public int hpCurrent = 15;
+	public int subWeaponType;
 	private bool isAlive = true;
 	private bool isInvulnerable = false;
 	public float invulnTime = 0.5f;
@@ -32,11 +36,17 @@ public class NewPlayerController : MonoBehaviour
 	public Text livesGUI;
 	
 	public Animator animator; 
+	
+	
+	public GameObject prefab; // a bullet a player can shoot
 
 	
     // Start is called before the first frame update
     void Start()
     {
+		prefab = Resources.Load("Bullet") as GameObject;
+		
+		
 		Grounded=true;
 		lives = PlayerPrefs.GetInt("lives");
 		if(lives <= 0)
@@ -158,6 +168,20 @@ public class NewPlayerController : MonoBehaviour
 		else{
 			hpCurrent += difference;
 		}
+	}
+	public void setSubWeapon(int type){
+		subWeaponType=type;
+		if(subWeaponType==0){ //tried to get the bullet to work, haven't set up the collision between the bullet yet.
+			if( Input.GetKeyDown(KeyCode.E)){
+				
+				GameObject Bullet = Instantiate(prefab) as GameObject;
+				Bullet.transform.position = transform.position * 2 ; 
+				Rigidbody2D rb = Bullet.GetComponent<Rigidbody2D>();
+				rb.velocity =lastMove;
+			}
+			
+		}
+		
 	}
 
 	public void respawn()

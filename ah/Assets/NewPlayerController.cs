@@ -16,6 +16,7 @@ public class NewPlayerController : MonoBehaviour
 	//public float raycastMaxDistance= 4f;
 
 	private bool playerMoving; 
+	public  int ammo;
 	
 	private Vector2 lastMove;
 	
@@ -39,6 +40,8 @@ public class NewPlayerController : MonoBehaviour
 	
 	
 	public GameObject prefab; // a bullet a player can shoot
+	//public Rigidbody2D bullRB; // bullet rigidbody
+	//public float bulletSpeed = 20f; //the speed which a bullet can travel
 
 	
     // Start is called before the first frame update
@@ -104,6 +107,13 @@ public class NewPlayerController : MonoBehaviour
 			myRigidbody.AddForce(Vector2.up*jumpForce,ForceMode2D.Impulse);
 			Grounded=false;
 		}
+		if(subWeaponType==0 && Input.GetKeyDown(KeyCode.E)  && ammo>0){
+			GameObject bullet = (GameObject)Instantiate(prefab);
+			bullet.transform.position = new Vector3(transform.position.x + 4f, transform.position.y,0f); 
+			ammo-=1;
+			
+		}
+		
 		animator.SetFloat("Horizontal",Input.GetAxis("Horizontal"));//for animations
 
 		
@@ -141,6 +151,8 @@ public class NewPlayerController : MonoBehaviour
 			}
 			
 		}
+	
+			
     }
 
 	public int getHpMax()
@@ -169,18 +181,22 @@ public class NewPlayerController : MonoBehaviour
 			hpCurrent += difference;
 		}
 	}
-	public void setSubWeapon(int type){
+    public void setSubWeapon(int type){  
 		subWeaponType=type;
-		if(subWeaponType==0){ //tried to get the bullet to work, haven't set up the collision between the bullet yet.
-			if( Input.GetKeyDown(KeyCode.E)){
+		//if(subWeaponType==0){ //tried to get the bullet to work, haven't set up the collision between the bullet yet.
+			//if( Input.GetKeyDown(KeyCode.E)){
 				
 				GameObject Bullet = Instantiate(prefab) as GameObject;
-				Bullet.transform.position = transform.position * 2 ; 
+				/*//Bullet.transform.position = transform.position * 2 ; 
 				Rigidbody2D rb = Bullet.GetComponent<Rigidbody2D>();
+				Bullet.transform.position = transform.position * 2 ;
 				rb.velocity =lastMove;
-			}
+				/*GameObject Bullet = Instantiate(prefab) as GameObject;
+				var BulletInst = Instantiate(Bullet, transform.position, Quaternion.Euler(new Vector2(0, 0))); 
+				BulletInst.velocity=new Vector2(bulletSpeed,0);*/
+			//}
 			
-		}
+		//}
 		
 	}
 

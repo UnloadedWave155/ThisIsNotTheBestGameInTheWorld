@@ -9,7 +9,7 @@ public class SubWeapon : MonoBehaviour
 	public NewPlayerController player;
 	private AudioSource soundEffect;
 	private AudioClip aClip;
-	private bool activated = false;
+	public bool activated = false;
 	//private Sprite sprite;
 
 	//Sub Weapon Script based on ypur PowerUp script.
@@ -45,7 +45,7 @@ public class SubWeapon : MonoBehaviour
 
 			if(myPower == 0) // pistol
 			{
-				Debug.Log("Player has  " );
+				Debug.Log("Player has a gun " );
 				player.setSubWeapon(0);  
 				//Debug.Log("HP: " + player.getHpCurrent() + "/" + player.getHpMax());
 			}
@@ -54,10 +54,10 @@ public class SubWeapon : MonoBehaviour
 				Debug.Log("HP: " + player.getHpCurrent() + "/" + player.getHpMax());
 				player.changeHpCurrent(999);
 				Debug.Log("HP: " + player.getHpCurrent() + "/" + player.getHpMax());
-			}
+			}*/
 			soundEffect.PlayOneShot(aClip);
 			GetComponent<SpriteRenderer>().enabled = false; // hide the object in the scene so it looks destroyed
-			Destroy(gameObject, aClip.length); // destroy when sound is done playing*/
+			Destroy(gameObject); // destroy when sound is done playing
 		}
 	}
 

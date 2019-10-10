@@ -8,6 +8,7 @@ public class NewPlayerController : MonoBehaviour
 //new script becaues the renamed one wouldn't register/ attach to the player sprite
 {
 	public float moveSpeed;
+	//public float bulletSpeed=10f;
 	
 	
 	
@@ -26,7 +27,7 @@ public class NewPlayerController : MonoBehaviour
 
 	public int hpMax = 15;
 	public int hpCurrent = 15;
-	public int subWeaponType;
+	public int subWeaponType = -1;
 	private bool isAlive = true;
 	private bool isInvulnerable = false;
 	public float invulnTime = 0.5f;
@@ -110,6 +111,8 @@ public class NewPlayerController : MonoBehaviour
 		if(subWeaponType==0 && Input.GetKeyDown(KeyCode.E)  && ammo>0){
 			GameObject bullet = (GameObject)Instantiate(prefab);
 			bullet.transform.position = new Vector3(transform.position.x + 0.4f, transform.position.y,0f); 
+			Rigidbody2D rb2d = bullet.GetComponent<Rigidbody2D>();
+			rb2d.velocity = lastMove*100;
 			ammo-=1;
 			
 		}

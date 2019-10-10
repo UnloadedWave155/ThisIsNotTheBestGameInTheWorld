@@ -153,15 +153,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
+  bulletSpeed: 10
+  ammo: 10
   jumpForce: 375
   Grounded: 0
   hpMax: 16
   hpCurrent: 16
+  subWeaponType: 0
   invulnTime: 0.5
   playerStart: {fileID: 0}
   lives: 0
   livesGUI: {fileID: 0}
   animator: {fileID: 1390393708}
+  prefab: {fileID: 0}
 --- !u!114 &1390393707
 MonoBehaviour:
   m_ObjectHideFlags: 0

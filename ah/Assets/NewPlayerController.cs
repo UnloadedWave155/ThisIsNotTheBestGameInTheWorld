@@ -109,7 +109,7 @@ public class NewPlayerController : MonoBehaviour
 		}
 		if(subWeaponType==0 && Input.GetKeyDown(KeyCode.E)  && ammo>0){
 			GameObject bullet = (GameObject)Instantiate(prefab);
-			bullet.transform.position = new Vector3(transform.position.x + 4f, transform.position.y,0f); 
+			bullet.transform.position = new Vector3(transform.position.x + 0.4f, transform.position.y,0f); 
 			ammo-=1;
 			
 		}

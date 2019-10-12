@@ -9,10 +9,7 @@ public class NewPlayerController : MonoBehaviour
 {
 	public float moveSpeed;
 	//public float bulletSpeed=10f;
-	
-	
-	
-	
+		
 	private Rigidbody2D myRigidbody;
 	//public float raycastMaxDistance= 4f;
 
@@ -36,21 +33,20 @@ public class NewPlayerController : MonoBehaviour
 	private GUIController myGUI;
 	public int lives = 5;
 	public Text livesGUI;
+
+	public GameObject bulletRight;
+	public GameObject bulletLeft;
+	Vector2 bulletPos;
+	public float fireRate = .5f;
+	float nextFire = 0f;
+	bool facingRight = true;
 	
 	public Animator animator; 
-	
-	
-	public GameObject prefab; // a bullet a player can shoot
-	//public Rigidbody2D bullRB; // bullet rigidbody
-	//public float bulletSpeed = 20f; //the speed which a bullet can travel
-
 	
     // Start is called before the first frame update
     void Start()
     {
-		prefab = Resources.Load("Bullet") as GameObject;
-		
-		
+
 		Grounded=true;
 		lives = PlayerPrefs.GetInt("lives");
 		if(lives <= 0)
@@ -91,8 +87,24 @@ public class NewPlayerController : MonoBehaviour
 			}
 			isAlive = false;
 		}
-		
-		if (Input.GetAxisRaw("Horizontal") > 0.5f || Input.GetAxisRaw ("Horizontal") < -0.5f ) {
+
+		if (Input.GetAxisRaw("Horizontal") > 0.5f ) {
+
+			myRigidbody.velocity = new Vector2(Input.GetAxisRaw("Horizontal") * moveSpeed, myRigidbody.velocity.y);
+			playerMoving = true;
+			lastMove = new Vector2 (Input.GetAxisRaw("Horizontal"), 0f); 
+			facingRight = true;
+		}
+		if (Input.GetAxisRaw("Horizontal") < -0.5f ) {
+
+			myRigidbody.velocity = new Vector2(Input.GetAxisRaw("Horizontal") * moveSpeed, myRigidbody.velocity.y);
+			playerMoving = true;
+			lastMove = new Vector2 (Input.GetAxisRaw("Horizontal"), 0f); 
+			facingRight = false;
+		}
+
+
+		/*if (Input.GetAxisRaw("Horizontal") > 0.5f || Input.GetAxisRaw ("Horizontal") < -0.5f ) {
 
 			//transform.Translate (new Vector3 (Input.GetAxisRaw("Horizontal") * moveSpeed * Time.deltaTime, 0f, 0f));
 			myRigidbody.velocity = new Vector2(Input.GetAxisRaw("Horizontal") * moveSpeed, myRigidbody.velocity.y);
@@ -100,7 +112,7 @@ public class NewPlayerController : MonoBehaviour
 			lastMove = new Vector2 (Input.GetAxisRaw("Horizontal"), 0f); 
 			
 
-		}
+		}*/
 		if (Input.GetAxisRaw("Horizontal") < 0.5f && Input.GetAxisRaw("Horizontal") > -0.5f) {
 			myRigidbody.velocity = new Vector2(0f, myRigidbody.velocity.y); 
 		}
@@ -108,13 +120,9 @@ public class NewPlayerController : MonoBehaviour
 			myRigidbody.AddForce(Vector2.up*jumpForce,ForceMode2D.Impulse);
 			Grounded=false;
 		}
-		if(subWeaponType==0 && Input.GetKeyDown(KeyCode.E)  && ammo>0){
-			GameObject bullet = (GameObject)Instantiate(prefab);
-			bullet.transform.position = new Vector3(transform.position.x + 0.4f, transform.position.y,0f); 
-			Rigidbody2D rb2d = bullet.GetComponent<Rigidbody2D>();
-			rb2d.velocity = lastMove*100;
-			ammo-=1;
-			
+		if(subWeaponType==0 && Input.GetKeyDown(KeyCode.E)  && (ammo > 0) && (Time.time > nextFire)){
+			nextFire = Time.time + fireRate; // delay between firing shots
+			fire();
 		}
 		
 		animator.SetFloat("Horizontal",Input.GetAxis("Horizontal"));//for animations
@@ -185,21 +193,7 @@ public class NewPlayerController : MonoBehaviour
 		}
 	}
     public void setSubWeapon(int type){  
-		subWeaponType=type;
-		//if(subWeaponType==0){ //tried to get the bullet to work, haven't set up the collision between the bullet yet.
-			//if( Input.GetKeyDown(KeyCode.E)){
-				
-				GameObject Bullet = Instantiate(prefab) as GameObject;
-				/*//Bullet.transform.position = transform.position * 2 ; 
-				Rigidbody2D rb = Bullet.GetComponent<Rigidbody2D>();
-				Bullet.transform.position = transform.position * 2 ;
-				rb.velocity =lastMove;
-				/*GameObject Bullet = Instantiate(prefab) as GameObject;
-				var BulletInst = Instantiate(Bullet, transform.position, Quaternion.Euler(new Vector2(0, 0))); 
-				BulletInst.velocity=new Vector2(bulletSpeed,0);*/
-			//}
-			
-		//}
+		
 		
 	}
 
@@ -211,5 +205,18 @@ public class NewPlayerController : MonoBehaviour
 		SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 	}
 
+	public void fire()
+	{
+		bulletPos = transform.position;
+		if(facingRight)
+		{
+			bulletPos += new Vector2(+.5f, +0.2f);
+			Instantiate(bulletRight, bulletPos, Quaternion.identity);
+		}
+		else{
+			bulletPos += new Vector2(-.5f, +0.2f);
+			Instantiate(bulletLeft, bulletPos, Quaternion.identity);
+		}
+	}
 
 }

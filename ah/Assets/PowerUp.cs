@@ -55,6 +55,7 @@ public class PowerUp : MonoBehaviour
 				player.changeHpCurrent(999);
 				Debug.Log("HP: " + player.getHpCurrent() + "/" + player.getHpMax());
 			}
+			
 			soundEffect.PlayOneShot(aClip);
 			GetComponent<SpriteRenderer>().enabled = false; // hide the object in the scene so it looks destroyed
 			Destroy(gameObject, aClip.length); // destroy when sound is done playing

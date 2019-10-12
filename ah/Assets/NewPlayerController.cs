@@ -193,6 +193,7 @@ public class NewPlayerController : MonoBehaviour
 		}
 	}
     public void setSubWeapon(int type){  
+		subWeaponType=type;
 		
 		
 	}

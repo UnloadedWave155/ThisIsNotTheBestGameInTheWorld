@@ -27,4 +27,15 @@ public class ZedMovement : MonoBehaviour
 			myRigidbody.velocity = new Vector2( zedSpeed * -moveSpeed, myRigidbody.velocity.y);
 		}
     }
+	
+		
+	void OnCollisionEnter2D (Collision2D col)
+	{
+		if (col.gameObject.tag == "bullet"){
+			
+			
+			Destroy(gameObject);
+		
+		}
+	}
 }

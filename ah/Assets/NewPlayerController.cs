@@ -40,6 +40,10 @@ public class NewPlayerController : MonoBehaviour
 	public float fireRate = .5f;
 	float nextFire = 0f;
 	bool facingRight = true;
+
+	bool fellInPit = false;
+	float pitDeathDelay = 2.0f;
+	float deathCountdown = 999999999f;
 	
 	public Animator animator; 
 	
@@ -124,6 +128,13 @@ public class NewPlayerController : MonoBehaviour
 			nextFire = Time.time + fireRate; // delay between firing shots
 			fire();
 		}
+
+		if(Time.time > deathCountdown)
+		{
+			hpCurrent = 0;
+			isAlive = false;
+			myGUI.showDeathUI();
+		}
 		
 		animator.SetFloat("Horizontal",Input.GetAxis("Horizontal"));//for animations
 
@@ -162,9 +173,18 @@ public class NewPlayerController : MonoBehaviour
 			}
 			
 		}
-	
-			
+
     }
+
+	void OnTriggerEnter2D(Collider2D col)
+	{
+		if (col.gameObject.tag == "pits")
+		{
+			Debug.Log("Fell in a pit!");
+			fellInPit = true;
+			deathCountdown = Time.time + pitDeathDelay;
+		}
+	}
 
 	public int getHpMax()
 	{
@@ -174,6 +194,11 @@ public class NewPlayerController : MonoBehaviour
 	public int getHpCurrent()
 	{
 		return hpCurrent;
+	}
+
+	public bool isInPit()
+	{
+		return fellInPit;
 	}
 
 	// takes positive or negative number and changes current HP

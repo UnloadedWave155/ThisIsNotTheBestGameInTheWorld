@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CameraMovement : MonoBehaviour
 {
-	public GameObject player;
+	public NewPlayerController player;
 	private Vector3 offset;
 	
     // Start is called before the first frame update
@@ -16,6 +16,9 @@ public class CameraMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = player.transform.position+offset;
+		if(!(player.isInPit()))
+		{
+        	transform.position = player.transform.position+offset;
+		}
     }
 }

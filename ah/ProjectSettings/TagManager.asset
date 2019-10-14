@@ -9,6 +9,7 @@ TagManager:
   - FOE
   - stairs
   - bullet
+  - pits
   layers:
   - Default
   - TransparentFX
@@ -23,7 +24,7 @@ TagManager:
   - enemy
   - stairs
   - bullet
-  - 
+  - pits
   - 
   - 
   - 

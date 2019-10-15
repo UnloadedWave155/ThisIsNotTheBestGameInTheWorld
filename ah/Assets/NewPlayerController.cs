@@ -172,7 +172,11 @@ public class NewPlayerController : MonoBehaviour
 				Grounded= true;
 			}
 			
+			
 		}
+		if(col.gameObject.tag == "spike"){
+				hpCurrent-=8;
+			}
 
     }
 

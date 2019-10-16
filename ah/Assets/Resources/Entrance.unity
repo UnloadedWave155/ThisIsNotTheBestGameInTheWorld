@@ -16891,7 +16891,7 @@ TilemapCollider2D:
   m_GameObject: {fileID: 193849359}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: d86a7b6d657644d41878ff9194581fd8, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -19099,7 +19099,7 @@ CompositeCollider2D:
   m_GameObject: {fileID: 1262442097}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 0ce3dc78fe29d2c4699dcb7545ef9b93, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -19127,7 +19127,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 0ce3dc78fe29d2c4699dcb7545ef9b93, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0

@@ -142,7 +142,7 @@ public class NewPlayerController : MonoBehaviour
     }
 	void OnCollisionEnter2D (Collision2D col)
     {
-        if (col.gameObject.tag == "floor")
+        if (col.gameObject.tag == "floor" || col.gameObject.tag == "stairs")
         {
             Grounded= true;
         }
@@ -156,7 +156,7 @@ public class NewPlayerController : MonoBehaviour
 			}
 
         }
-		if (col.gameObject.tag=="stairs" && Input.GetKeyDown(KeyCode.UpArrow)) 
+		/*if (col.gameObject.tag=="stairs" && Input.GetKeyDown(KeyCode.UpArrow)) 
 		{
 			
 			if(Input.GetAxisRaw("Horizontal") > 0.5f){
@@ -173,7 +173,7 @@ public class NewPlayerController : MonoBehaviour
 			}
 			
 			
-		}
+		}*/
 		if(col.gameObject.tag == "spike"){
 				hpCurrent-=8;
 			}

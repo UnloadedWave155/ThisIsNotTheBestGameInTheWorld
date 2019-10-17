@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 ﻿{"cameraMode":{"drawMode":0,"name":"Shaded","section":"Shading Mode"},"sceneLighting":true,"audioPlay":false,"sceneViewState":{"showFog":true,"showMaterialUpdate":false,"showSkybox":true,"showFlares":true,"showImageEffects":true,"showParticleSystems":true},"in2DMode":true,"pivot":{"x":-1.6935465335845948,"y":-7.460358142852783,"z":-5.37019157409668},"rotation":{"x":0.0,"y":0.0,"z":0.0,"w":1.0},"size":29.195844650268556,"orthographic":true}
+=======
+﻿{"cameraMode":{"drawMode":0,"name":"Shaded","section":"Shading Mode"},"sceneLighting":true,"audioPlay":false,"sceneViewState":{"showFog":true,"showMaterialUpdate":false,"showSkybox":true,"showFlares":true,"showImageEffects":true,"showParticleSystems":true},"in2DMode":true,"pivot":{"x":4.638320446014404,"y":2.850149154663086,"z":-0.17403507232666017},"rotation":{"x":0.0,"y":0.0,"z":0.0,"w":1.0},"size":27.348329544067384,"orthographic":true}
+>>>>>>> parent of 70533a0... animations

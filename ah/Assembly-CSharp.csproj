@@ -62,6 +62,7 @@
      <Compile Include="Assets\NewPlayerController.cs" />
      <Compile Include="Assets\PlayerController.cs" />
      <Compile Include="Assets\PowerUp.cs" />
+     <Compile Include="Assets\Spawner.cs" />
      <Compile Include="Assets\SubWeapon.cs" />
      <Compile Include="Assets\ZedMovement.cs" />
  <Reference Include="Unity.TextMeshPro.Editor">

@@ -41,7 +41,8 @@ public class Spawner : MonoBehaviour
 			spawnTime-=Time.deltaTime;
 			}
 		if(Vector3.Distance(target.position, myTransform.position) > maxDistance ){
-			spawnTime=spawnDelay;	
+			spawnTime=spawnDelay;
+			active = false;			
 		}
 	 }
  

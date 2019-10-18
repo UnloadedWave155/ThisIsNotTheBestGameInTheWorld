@@ -6,6 +6,8 @@ public class ZedMovement : MonoBehaviour
 {
 	public float moveSpeed;
 	public int moveX;
+	public Spawner spawn;
+	public bool canSpawn;
 	
 	private Rigidbody2D myRigidbody;
 	//later implement the animation later.
@@ -25,6 +27,14 @@ public class ZedMovement : MonoBehaviour
         if(moveX<=0){
 			myRigidbody.velocity = new Vector2( 1f * -moveSpeed, myRigidbody.velocity.y);
 		}
+		if(gameObject.transform.position.y<-50){
+			transform.gameObject.SetActive(false);
+			canSpawn=true;
+		}
+		if(canSpawn==true){
+			gameObject.transform.position = transform.position;
+			transform.gameObject.SetActive(true);
+		}
     }
 
 	
@@ -34,7 +44,8 @@ public class ZedMovement : MonoBehaviour
 		if (col.gameObject.tag == "bullet"){
 			
 			
-			Destroy(gameObject);
+			transform.gameObject.SetActive(false);
+			canSpawn=true;
 			
 		
 		}

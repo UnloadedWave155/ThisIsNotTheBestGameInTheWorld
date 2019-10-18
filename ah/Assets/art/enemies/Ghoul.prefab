@@ -163,8 +163,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 2
-  zedSpeed: 1
   moveX: -1
+  spawn: {fileID: 0}
+  canSpawn: 0
 --- !u!114 &778649989
 MonoBehaviour:
   m_ObjectHideFlags: 0

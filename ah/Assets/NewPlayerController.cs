@@ -46,6 +46,11 @@ public class NewPlayerController : MonoBehaviour
 	float deathCountdown = 999999999f;
 	
 	public Animator animator; 
+
+	//better jump stuff
+	public float fallMultiplier = 2.5f;
+	public float lowJumpMultiplier = 2.0f;
+	bool jumpRequest = false;
 	
     // Start is called before the first frame update
     void Start()
@@ -120,10 +125,13 @@ public class NewPlayerController : MonoBehaviour
 		if (Input.GetAxisRaw("Horizontal") < 0.5f && Input.GetAxisRaw("Horizontal") > -0.5f) {
 			myRigidbody.velocity = new Vector2(0f, myRigidbody.velocity.y); 
 		}
-		if(Input.GetKeyDown(KeyCode.Space)&&Grounded){
-			myRigidbody.AddForce(Vector2.up*jumpForce,ForceMode2D.Impulse);
+		if(Input.GetButtonDown("Jump") && Grounded){
+			jumpRequest = true;
 			Grounded=false;
 		}
+
+
+
 		if(subWeaponType==0 && Input.GetKeyDown(KeyCode.E)  && (ammo > 0) && (Time.time > nextFire)){
 			nextFire = Time.time + fireRate; // delay between firing shots
 			fire();
@@ -140,6 +148,26 @@ public class NewPlayerController : MonoBehaviour
 
 		
     }
+
+	void FixedUpdate()
+	{
+		if(jumpRequest){
+			myRigidbody.AddForce(Vector2.up*jumpForce,ForceMode2D.Impulse);
+			jumpRequest = false;
+		}
+		if(myRigidbody.velocity.y < 0) // player is falling
+		{
+			myRigidbody.gravityScale = fallMultiplier;
+		}
+		else if(myRigidbody.velocity.y > 0 && !Input.GetButton("Jump")){
+			myRigidbody.gravityScale = lowJumpMultiplier;
+		}
+		else
+		{
+			myRigidbody.gravityScale = 1f;
+		}
+	}
+
 	void OnCollisionEnter2D (Collision2D col)
     {
         if (col.gameObject.tag == "floor" || col.gameObject.tag == "stairs")

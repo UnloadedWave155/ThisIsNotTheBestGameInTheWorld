@@ -18394,6 +18394,108 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1028674326}
   m_CullTransparentMesh: 0
+--- !u!1 &1080604360 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3181814605898400240, guid: cb69eeda193da0d498941016f49db115,
+    type: 3}
+  m_PrefabInstance: {fileID: 3181814607268739221}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &1080604366
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1080604360}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 32acdd61c9bfb8e46aafeed84840db20, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1089119006
 GameObject:
   m_ObjectHideFlags: 0
@@ -19369,7 +19471,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 3181814607268739221}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1080604360}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e31e52e4b9b9c3048b53e4ed0eb19c20, type: 3}
@@ -38307,44 +38409,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: player
       objectReference: {fileID: 0}
-    - target: {fileID: 1390393703, guid: cb69eeda193da0d498941016f49db115, type: 3}
-      propertyPath: playerStart
-      value: 
-      objectReference: {fileID: 1521074508}
-    - target: {fileID: 1390393703, guid: cb69eeda193da0d498941016f49db115, type: 3}
-      propertyPath: livesGUI
-      value: 
-      objectReference: {fileID: 2080699480}
-    - target: {fileID: 1390393703, guid: cb69eeda193da0d498941016f49db115, type: 3}
-      propertyPath: prefab
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1390393703, guid: cb69eeda193da0d498941016f49db115, type: 3}
-      propertyPath: bulletRight
-      value: 
-      objectReference: {fileID: 110720649928737992, guid: decaddce75a83f643b031c4f51d6b6ee,
-        type: 3}
-    - target: {fileID: 1390393703, guid: cb69eeda193da0d498941016f49db115, type: 3}
-      propertyPath: bulletLeft
-      value: 
-      objectReference: {fileID: 3070847507389184149, guid: 583b07b3771d3594e89bf7ca6b62533b,
-        type: 3}
-    - target: {fileID: 1390393703, guid: cb69eeda193da0d498941016f49db115, type: 3}
-      propertyPath: subWeaponType
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1390393703, guid: cb69eeda193da0d498941016f49db115, type: 3}
-      propertyPath: jumpForce
-      value: 6.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1390393703, guid: cb69eeda193da0d498941016f49db115, type: 3}
-      propertyPath: fallMultiplier
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1390393703, guid: cb69eeda193da0d498941016f49db115, type: 3}
-      propertyPath: lowJumpMultiplier
-      value: 1.2
-      objectReference: {fileID: 0}
     - target: {fileID: 3181814605898400252, guid: cb69eeda193da0d498941016f49db115,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -38399,6 +38463,44 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1390393703, guid: cb69eeda193da0d498941016f49db115, type: 3}
+      propertyPath: playerStart
+      value: 
+      objectReference: {fileID: 1521074508}
+    - target: {fileID: 1390393703, guid: cb69eeda193da0d498941016f49db115, type: 3}
+      propertyPath: livesGUI
+      value: 
+      objectReference: {fileID: 2080699480}
+    - target: {fileID: 1390393703, guid: cb69eeda193da0d498941016f49db115, type: 3}
+      propertyPath: prefab
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1390393703, guid: cb69eeda193da0d498941016f49db115, type: 3}
+      propertyPath: bulletRight
+      value: 
+      objectReference: {fileID: 110720649928737992, guid: decaddce75a83f643b031c4f51d6b6ee,
+        type: 3}
+    - target: {fileID: 1390393703, guid: cb69eeda193da0d498941016f49db115, type: 3}
+      propertyPath: bulletLeft
+      value: 
+      objectReference: {fileID: 3070847507389184149, guid: 583b07b3771d3594e89bf7ca6b62533b,
+        type: 3}
+    - target: {fileID: 1390393703, guid: cb69eeda193da0d498941016f49db115, type: 3}
+      propertyPath: subWeaponType
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1390393703, guid: cb69eeda193da0d498941016f49db115, type: 3}
+      propertyPath: jumpForce
+      value: 6.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1390393703, guid: cb69eeda193da0d498941016f49db115, type: 3}
+      propertyPath: fallMultiplier
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1390393703, guid: cb69eeda193da0d498941016f49db115, type: 3}
+      propertyPath: lowJumpMultiplier
+      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 1390393707, guid: cb69eeda193da0d498941016f49db115, type: 3}
       propertyPath: healthBar

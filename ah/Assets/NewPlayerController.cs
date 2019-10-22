@@ -51,11 +51,14 @@ public class NewPlayerController : MonoBehaviour
 	public float fallMultiplier = 2.5f;
 	public float lowJumpMultiplier = 2.0f;
 	bool jumpRequest = false;
+
+	//Audio stuff
+	AudioClip shot;
 	
     // Start is called before the first frame update
     void Start()
     {
-
+		shot = GetComponent<AudioSource>().clip;
 		Grounded=true;
 		lives = PlayerPrefs.GetInt("lives");
 		if(lives <= 0)
@@ -275,6 +278,8 @@ public class NewPlayerController : MonoBehaviour
 			bulletPos += new Vector2(-.5f, +0.2f);
 			Instantiate(bulletLeft, bulletPos, Quaternion.identity);
 		}
+
+		GetComponent<AudioSource>().PlayOneShot(shot);
 	}
 
 }

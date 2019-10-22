@@ -38,6 +38,7 @@ public class NewPlayerController : MonoBehaviour
 	public GameObject bulletLeft;
 	Vector2 bulletPos;
 	public float fireRate = .5f;
+	public bool isShooting;
 	float nextFire = 0f;
 	bool facingRight = true;
 
@@ -54,6 +55,11 @@ public class NewPlayerController : MonoBehaviour
 
 	//Audio stuff
 	AudioClip shot;
+	
+	
+	//gun shooting stuff
+	public float attackTime;
+	private float attackTimeCounter;
 	
     // Start is called before the first frame update
     void Start()
@@ -137,7 +143,9 @@ public class NewPlayerController : MonoBehaviour
 
 		if(subWeaponType==0 && Input.GetKeyDown(KeyCode.E)  && (ammo > 0) && (Time.time > nextFire)){
 			nextFire = Time.time + fireRate; // delay between firing shots
+
 			fire();
+			animator.SetBool ("Attack", true);
 		}
 
 		if(Time.time > deathCountdown)

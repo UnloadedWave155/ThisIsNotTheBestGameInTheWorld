@@ -52,6 +52,7 @@ public class NewPlayerController : MonoBehaviour
 	public float fallMultiplier = 2.5f;
 	public float lowJumpMultiplier = 2.0f;
 	bool jumpRequest = false;
+	public float maxFallSpeed = 8.0f;
 
 	//Audio stuff
 	AudioClip shot;
@@ -176,6 +177,11 @@ public class NewPlayerController : MonoBehaviour
 		else
 		{
 			myRigidbody.gravityScale = 1f;
+		}
+
+		if(myRigidbody.velocity.y < 0)
+		{
+			myRigidbody.velocity = Vector2.ClampMagnitude(myRigidbody.velocity, maxFallSpeed);
 		}
 	}
 

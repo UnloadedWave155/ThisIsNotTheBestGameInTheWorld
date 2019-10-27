@@ -19,10 +19,9 @@ public class BulletScript : MonoBehaviour
 	{
 		if (col.gameObject.tag == "FOE"){
 			
-			Destroy(col.gameObject);
-			Destroy(gameObject);
-		
+			Destroy(col.gameObject);		
 		}
+		Destroy(gameObject);
 		
 	}
 

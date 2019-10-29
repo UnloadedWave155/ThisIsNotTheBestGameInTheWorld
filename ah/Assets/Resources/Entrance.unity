@@ -22918,6 +22918,11 @@ PrefabInstance:
       propertyPath: moveX2
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 95840488579183130, guid: 2e9ae15faf72767449dc70ec73f6b064,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: b50dbcbfd1ab96849937be1e67446ec0, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2e9ae15faf72767449dc70ec73f6b064, type: 3}
 --- !u!1001 &1547904262

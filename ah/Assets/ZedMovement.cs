@@ -6,6 +6,7 @@ public class ZedMovement : MonoBehaviour
 {
 	public float moveSpeed;
 	public int moveX;
+	public float moveX2;
 	public Spawner spawn;
 	public bool canSpawn;
 	
@@ -17,7 +18,7 @@ public class ZedMovement : MonoBehaviour
     void Start()
     {
         myRigidbody = GetComponent<Rigidbody2D>();
-		moveX= -1;
+		//moveX= -1;
     }
 
     // Update is called once per frame
@@ -39,6 +40,8 @@ public class ZedMovement : MonoBehaviour
 			gameObject.transform.position = transform.position;
 			transform.gameObject.SetActive(true);
 		}
+		//anim.SetInteger("moveX",moveX);
+		anim.SetFloat("moveX2", moveX2);
     }
 
 	

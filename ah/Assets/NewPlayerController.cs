@@ -47,6 +47,7 @@ public class NewPlayerController : MonoBehaviour
 	float deathCountdown = 999999999f;
 	
 	public Animator animator; 
+    private AnimationClip clip; 
 
 	//better jump stuff
 	public float fallMultiplier = 2.5f;
@@ -62,6 +63,7 @@ public class NewPlayerController : MonoBehaviour
 	//gun shooting stuff
 	public float attackTime;
 	private float attackTimeCounter;
+	
 	
     // Start is called before the first frame update
     void Start()
@@ -140,14 +142,21 @@ public class NewPlayerController : MonoBehaviour
 			jumpRequest = true;
 			Grounded=false;
 		}
+		if(Input.GetKeyDown(KeyCode.Q)){
+			animator.SetBool("Melee", true);
+			
+		}
+		else{
+			animator.SetBool("Melee",false);
+		}
 
 
 
 		if(subWeaponType==0 && Input.GetKeyDown(KeyCode.E)  && (ammo > 0) && (Time.time > nextFire)){
 			nextFire = Time.time + fireRate; // delay between firing shots
-
-			fire();
 			animator.SetBool ("Attack", true);
+			fire();
+			
 		}
 		else{
 			animator.SetBool("Attack", false);

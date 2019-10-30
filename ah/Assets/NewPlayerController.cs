@@ -149,6 +149,9 @@ public class NewPlayerController : MonoBehaviour
 			fire();
 			animator.SetBool ("Attack", true);
 		}
+		else{
+			animator.SetBool("Attack", false);
+		}
 
 		if(Time.time > deathCountdown)
 		{

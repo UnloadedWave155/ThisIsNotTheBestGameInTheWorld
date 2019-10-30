@@ -16,7 +16,7 @@ public class NewPlayerController : MonoBehaviour
 	private bool playerMoving; 
 	public  int ammo;
 	
-	private Vector2 lastMove;
+	public int lastMove;
 	
 	public float jumpForce;
 
@@ -114,15 +114,17 @@ public class NewPlayerController : MonoBehaviour
 
 			myRigidbody.velocity = new Vector2(Input.GetAxisRaw("Horizontal") * moveSpeed, myRigidbody.velocity.y);
 			playerMoving = true;
-			lastMove = new Vector2 (Input.GetAxisRaw("Horizontal"), 0f); 
+			lastMove = 1;
 			facingRight = true;
+			animator.SetInteger("lastMove", lastMove);
 		}
 		if (Input.GetAxisRaw("Horizontal") < -0.5f ) {
 
 			myRigidbody.velocity = new Vector2(Input.GetAxisRaw("Horizontal") * moveSpeed, myRigidbody.velocity.y);
 			playerMoving = true;
-			lastMove = new Vector2 (Input.GetAxisRaw("Horizontal"), 0f); 
+			lastMove = -1;
 			facingRight = false;
+			animator.SetInteger("lastMove", lastMove);
 		}
 
 
@@ -170,6 +172,7 @@ public class NewPlayerController : MonoBehaviour
 		}
 		
 		animator.SetFloat("Horizontal",Input.GetAxis("Horizontal"));//for animations
+
 
 		
     }

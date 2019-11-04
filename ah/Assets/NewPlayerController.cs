@@ -144,6 +144,7 @@ public class NewPlayerController : MonoBehaviour
 			jumpRequest = true;
 			Grounded=false;
 		}
+		
 		if(Input.GetKeyDown(KeyCode.Q)){
 			animator.SetBool("Melee", true);
 			

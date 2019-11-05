@@ -15,6 +15,7 @@ public class NewPlayerController : MonoBehaviour
 
 	private bool playerMoving; 
 	public  int ammo;
+	public Text ammoGUI;
 	
 	public int lastMove;
 	
@@ -79,6 +80,7 @@ public class NewPlayerController : MonoBehaviour
 			PlayerPrefs.SetInt("lives", lives);
 		}
 		livesGUI.text = lives.ToString();
+		ammoGUI.text = ammo.ToString();
         myRigidbody = GetComponent<Rigidbody2D>();
 		gameObject.transform.position = playerStart.transform.position;
 		myGUI = GetComponent<GUIController>();
@@ -289,8 +291,9 @@ public class NewPlayerController : MonoBehaviour
 	}
     public void setSubWeapon(int type){  
 		subWeaponType=type;
-		
-		
+		ammo+=12;
+		ammoGUI.text = ammo.ToString();
+
 	}
 
 	public void respawn()
@@ -313,7 +316,8 @@ public class NewPlayerController : MonoBehaviour
 			bulletPos += new Vector2(-.5f, +0.2f);
 			Instantiate(bulletLeft, bulletPos, Quaternion.identity);
 		}
-
+		ammo--;
+		ammoGUI.text = ammo.ToString();
 		GetComponent<AudioSource>().PlayOneShot(shot);
 	}
 

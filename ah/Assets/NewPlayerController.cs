@@ -148,6 +148,7 @@ public class NewPlayerController : MonoBehaviour
 		}
 		
 		if(Input.GetKeyDown(KeyCode.Q)){
+			
 			animator.SetBool("Melee", true);
 			
 		}
